@@ -44,3 +44,19 @@ console.log(eu.COLOR_GREEN)
 console.log(ErrorCode[0])
 
 let anyVar: any = 4
+
+// const unusable:void = 1 // error
+const unusable_undefined:void = undefined
+// const unusable_null:void = null // error
+
+const u:undefined = undefined
+const n:null = null
+
+// 默认undefined和null是所有类型的子类型（官方文档是这么写的，不过void类型的变量不能复制为null）
+// const varNum:number = undefined // error
+// const varNum:number = null // error
+const varNum:number|undefined|null = undefined // right
+
+const varAny:any = 'This is a string'
+const varNumber = (<string>varAny).length
+const varNumberOther = (varAny as  string).length
